@@ -9,10 +9,15 @@ const margin = {top: 20, right: 20, left: 100, bottom: 100}
 const graphWidth = 600 - margin.left - margin.right
 const graphHeight = 600 - margin.top - margin.bottom
 
+// Create group
+const group = svg.append('g')
+  .attr('width', graphWidth)
+  .attr('height', graphHeight)
+
 // Request JSON from external file and return promise
 d3.json('./scripts/stats.json').then((data) => {
 
-  const rects = svg.selectAll('rect')
+  const rects = group.selectAll('rect')
     .data(data)
   
   // Create max value to pass to Linear scale - adapts if new data with higher range added
