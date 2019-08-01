@@ -4,24 +4,25 @@ const svg = d3.select('.canvas')
     .attr('width', 600)
     .attr('height', 600)
 
+// Request JSON from external file and return promise
 d3.json('./scripts/stats.json').then((data) => {
 
   const rects = svg.selectAll('rect')
     .data(data)
-
-  console.log(rects)
-
+  
+  // Create max value to pass to Linear scale - adapts if new data with higher range added
   const y = d3.scaleLinear()
-    .domain([0, 3000])
+    .domain([0, d3.max(data, (d) => d.minutes)])
     .range([0, 500])
   
   const x = d3.scaleBand()
     .domain(data.map((year) => year.season))
     .range([0, 500])
     .paddingInner(0.2)
+    .paddingOuter(0.2)
   
-  console.log(x('2013/2014'))
-  console.log(x.bandwidth())
+  // console.log(x('2013/2014'))
+  // console.log(x.bandwidth())
 
   rects.attr('width', x.bandwidth)
     .attr('height', (d) => y(d.minutes))
