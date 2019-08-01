@@ -13,6 +13,7 @@ const graphHeight = 600 - margin.top - margin.bottom
 const group = svg.append('g')
   .attr('width', graphWidth)
   .attr('height', graphHeight)
+  .attr('transform', `translate(${margin.left}, ${margin.top})`)  // Allows space for axis
 
 // Request JSON from external file and return promise
 d3.json('./scripts/stats.json').then((data) => {
