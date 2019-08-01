@@ -1,5 +1,8 @@
-
-const svg = d3.select('svg')
+// Select canvas and append SVG
+const svg = d3.select('.canvas')
+  .append('svg')
+    .attr('width', 600)
+    .attr('height', 600)
 
 d3.json('./scripts/stats.json').then((data) => {
 
