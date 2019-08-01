@@ -3,6 +3,11 @@
 // Select canvas and append SVG
 var svg = d3.select('.canvas').append('svg').attr('width', 600).attr('height', 600);
 
+// Create margins for group element
+var margin = { top: 20, right: 20, left: 100, bottom: 100 };
+var graphWidth = 600 - margin.left - margin.right;
+var graphHeight = 600 - margin.top - margin.bottom;
+
 // Request JSON from external file and return promise
 d3.json('./scripts/stats.json').then(function (data) {
 

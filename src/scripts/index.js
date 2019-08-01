@@ -4,6 +4,11 @@ const svg = d3.select('.canvas')
     .attr('width', 600)
     .attr('height', 600)
 
+// Create margins for group element
+const margin = {top: 20, right: 20, left: 100, bottom: 100}
+const graphWidth = 600 - margin.left - margin.right
+const graphHeight = 600 - margin.top - margin.bottom
+
 // Request JSON from external file and return promise
 d3.json('./scripts/stats.json').then((data) => {
 
