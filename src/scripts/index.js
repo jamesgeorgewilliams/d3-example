@@ -10,15 +10,19 @@ const graphWidth = 600 - margin.left - margin.right
 const graphHeight = 600 - margin.top - margin.bottom
 
 // Create group
-const group = svg.append('g')
+const graph = svg.append('g')
   .attr('width', graphWidth)
   .attr('height', graphHeight)
   .attr('transform', `translate(${margin.left}, ${margin.top})`)  // Allows space for axis
 
+// Create Axes groups
+const xAxisGroup = graph.append('g')
+const yAxisGroup = graph.append('g')
+
 // Request JSON from external file and return promise
 d3.json('./scripts/stats.json').then((data) => {
 
-  const rects = group.selectAll('rect')
+  const rects = graph.selectAll('rect')
     .data(data)
   
   // Create max value to pass to Linear scale - adapts if new data with higher range added
