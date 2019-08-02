@@ -17,6 +17,7 @@ const graph = svg.append('g')
 
 // Create Axes groups
 const xAxisGroup = graph.append('g')
+  .attr('transform', `translate(${0}, ${graphHeight})`)
 const yAxisGroup = graph.append('g')
 
 // Request JSON from external file and return promise

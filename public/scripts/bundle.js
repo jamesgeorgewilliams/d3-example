@@ -12,7 +12,7 @@ var graphHeight = 600 - margin.top - margin.bottom;
 var graph = svg.append('g').attr('width', graphWidth).attr('height', graphHeight).attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')'); // Allows space for axis
 
 // Create Axes groups
-var xAxisGroup = graph.append('g');
+var xAxisGroup = graph.append('g').attr('transform', 'translate(' + 0 + ', ' + graphHeight + ')');
 var yAxisGroup = graph.append('g');
 
 // Request JSON from external file and return promise
