@@ -43,4 +43,12 @@ d3.json('./scripts/stats.json').then(function (data) {
   }).attr('fill', 'green').attr('x', function (d) {
     return x(d.season);
   });
+
+  // Create the axes with scales
+  var xAxis = d3.axisBottom(x);
+  var yAxis = d3.axisLeft(y);
+
+  // Call the axes for the groups
+  xAxisGroup.call(xAxis);
+  yAxisGroup.call(yAxis);
 });

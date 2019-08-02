@@ -51,6 +51,14 @@ d3.json('./scripts/stats.json').then((data) => {
       .attr('height', (d) => y(d.minutes))
       .attr('fill', 'green')
       .attr('x', (d) => x(d.season))
+
+  // Create the axes with scales
+  const xAxis = d3.axisBottom(x)
+  const yAxis = d3.axisLeft(y)
+
+  // Call the axes for the groups
+  xAxisGroup.call(xAxis)
+  yAxisGroup.call(yAxis)
 })
 
 
