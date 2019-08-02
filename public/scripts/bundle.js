@@ -23,7 +23,7 @@ d3.json('./scripts/stats.json').then(function (data) {
   // Create max value to pass to Linear scale - adapts if new data with higher range added
   var y = d3.scaleLinear().domain([0, d3.max(data, function (d) {
     return d.minutes;
-  })]).range([0, 500]);
+  })]).range([0, graphHeight]); // Pass graph height to y range to make rectangles fit
 
   var x = d3.scaleBand().domain(data.map(function (year) {
     return year.season;
