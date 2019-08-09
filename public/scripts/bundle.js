@@ -34,7 +34,7 @@ d3.json('./scripts/stats.json').then(function (data) {
 
   rects.attr('width', x.bandwidth).attr('height', function (d) {
     return graphHeight - y(d.minutes);
-  }).attr('fill', 'green').attr('x', function (d) {
+  }).attr('fill', 'DarkSeaGreen').attr('x', function (d) {
     return x(d.season);
   }).attr('y', function (d) {
     return y(d.minutes);
@@ -42,7 +42,7 @@ d3.json('./scripts/stats.json').then(function (data) {
 
   rects.enter().append('rect').attr('width', x.bandwidth).attr('height', function (d) {
     return graphHeight - y(d.minutes);
-  }).attr('fill', 'green').attr('x', function (d) {
+  }).attr('fill', 'DarkSeaGreen').attr('x', function (d) {
     return x(d.season);
   }).attr('y', function (d) {
     return y(d.minutes);

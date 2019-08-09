@@ -42,7 +42,7 @@ d3.json('./scripts/stats.json').then((data) => {
 
   rects.attr('width', x.bandwidth)
     .attr('height', (d) => graphHeight - y(d.minutes))
-    .attr('fill', 'green')
+    .attr('fill', 'DarkSeaGreen')
     .attr('x', (d) => x(d.season))
     .attr('y', (d) => y(d.minutes))
     
@@ -51,7 +51,7 @@ d3.json('./scripts/stats.json').then((data) => {
     .append('rect')
       .attr('width', x.bandwidth)
       .attr('height', (d) => graphHeight - y(d.minutes))
-      .attr('fill', 'green')
+      .attr('fill', 'DarkSeaGreen')
       .attr('x', (d) => x(d.season))
       .attr('y', (d) => y(d.minutes))
 
