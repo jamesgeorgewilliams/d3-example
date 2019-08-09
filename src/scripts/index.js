@@ -44,6 +44,7 @@ d3.json('./scripts/stats.json').then((data) => {
     .attr('height', (d) => graphHeight - y(d.minutes))
     .attr('fill', 'green')
     .attr('x', (d) => x(d.season))
+    .attr('y', (d) => y(d.minutes))
     
 
   rects.enter()
@@ -52,6 +53,7 @@ d3.json('./scripts/stats.json').then((data) => {
       .attr('height', (d) => graphHeight - y(d.minutes))
       .attr('fill', 'green')
       .attr('x', (d) => x(d.season))
+      .attr('y', (d) => y(d.minutes))
 
   // Create the axes with scales
   const xAxis = d3.axisBottom(x)

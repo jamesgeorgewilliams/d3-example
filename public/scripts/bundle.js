@@ -36,12 +36,16 @@ d3.json('./scripts/stats.json').then(function (data) {
     return graphHeight - y(d.minutes);
   }).attr('fill', 'green').attr('x', function (d) {
     return x(d.season);
+  }).attr('y', function (d) {
+    return y(d.minutes);
   });
 
   rects.enter().append('rect').attr('width', x.bandwidth).attr('height', function (d) {
     return graphHeight - y(d.minutes);
   }).attr('fill', 'green').attr('x', function (d) {
     return x(d.season);
+  }).attr('y', function (d) {
+    return y(d.minutes);
   });
 
   // Create the axes with scales
