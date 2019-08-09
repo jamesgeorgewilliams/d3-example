@@ -33,13 +33,13 @@ d3.json('./scripts/stats.json').then(function (data) {
   // console.log(x.bandwidth())
 
   rects.attr('width', x.bandwidth).attr('height', function (d) {
-    return y(d.minutes);
+    return graphHeight - y(d.minutes);
   }).attr('fill', 'green').attr('x', function (d) {
     return x(d.season);
   });
 
   rects.enter().append('rect').attr('width', x.bandwidth).attr('height', function (d) {
-    return y(d.minutes);
+    return graphHeight - y(d.minutes);
   }).attr('fill', 'green').attr('x', function (d) {
     return x(d.season);
   });
