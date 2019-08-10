@@ -50,7 +50,11 @@ d3.json('./scripts/stats.json').then(function (data) {
 
   // Create the axes with scales
   var xAxis = d3.axisBottom(x);
-  var yAxis = d3.axisLeft(y);
+
+  var yAxis = d3.axisLeft(y).ticks(5) // Format amount of ticks & text
+  .tickFormat(function (d) {
+    return d + ' mins ';
+  });
 
   // Call the axes for the groups
   xAxisGroup.call(xAxis);
