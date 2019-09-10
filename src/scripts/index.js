@@ -50,10 +50,14 @@ d3.json('./scripts/stats.json').then((data) => {
   rects.enter()
     .append('rect')
       .attr('width', x.bandwidth)
-      .attr('height', (d) => graphHeight - y(d.minutes))
+      .attr('height', 0)
       .attr('fill', 'DarkSeaGreen')
       .attr('x', (d) => x(d.season))
-      .attr('y', (d) => y(d.minutes))
+      .attr('y', graphHeight)
+      .transition().duration(1000)
+        .attr('y', (d) => y(d.minutes))
+        .attr('height', (d) => graphHeight - y(d.minutes))
+
 
   // Create the axes with scales
   const xAxis = d3.axisBottom(x)

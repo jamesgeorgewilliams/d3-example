@@ -40,12 +40,12 @@ d3.json('./scripts/stats.json').then(function (data) {
     return y(d.minutes);
   });
 
-  rects.enter().append('rect').attr('width', x.bandwidth).attr('height', function (d) {
-    return graphHeight - y(d.minutes);
-  }).attr('fill', 'DarkSeaGreen').attr('x', function (d) {
+  rects.enter().append('rect').attr('width', x.bandwidth).attr('height', 0).attr('fill', 'DarkSeaGreen').attr('x', function (d) {
     return x(d.season);
-  }).attr('y', function (d) {
+  }).attr('y', graphHeight).transition().duration(1000).attr('y', function (d) {
     return y(d.minutes);
+  }).attr('height', function (d) {
+    return graphHeight - y(d.minutes);
   });
 
   // Create the axes with scales
